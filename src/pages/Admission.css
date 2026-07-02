@@ -1,0 +1,10 @@
+/* Admission */
+.adm-form .grid {
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .adm-form .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}

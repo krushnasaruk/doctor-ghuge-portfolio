@@ -1,0 +1,10 @@
+/* Appointment */
+.appt-form .grid {
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .appt-form .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
