@@ -224,3 +224,17 @@
     text-align: center;
   }
 }
+
+@media (max-width: 576px) {
+  .newsletter-form {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .newsletter-form input {
+    width: 100%;
+  }
+  .newsletter-form .btn {
+    width: 100%;
+  }
+}
