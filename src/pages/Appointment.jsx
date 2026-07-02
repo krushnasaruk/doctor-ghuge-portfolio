@@ -1,57 +1,104 @@
 import { Calendar } from 'lucide-react';
 import './Appointment.css';
 
-const Appointment = () => {
+const Appointment = ({ lang }) => {
+  const t = {
+    en: {
+      header: "Book Consultation",
+      nameLabel: "Full Name",
+      namePlaceholder: "Patient's Name",
+      phoneLabel: "Phone Number",
+      phonePlaceholder: "Mobile",
+      deptLabel: "Department",
+      deptSelect: "Select Department",
+      depts: [
+        { value: "cardiology", label: "Cardiology" },
+        { value: "diabetes", label: "Diabetes Care" },
+        { value: "critical", label: "Critical Care" },
+        { value: "others", label: "Other Specialties" }
+      ],
+      docLabel: "Doctor",
+      docSelect: "Select Doctor",
+      docOption: "Dr. N. B. Ghuge (M.D. Medicine)",
+      dateLabel: "Preferred Date",
+      timeLabel: "Preferred Time",
+      symptomsLabel: "Symptoms / Reason for visit",
+      symptomsPlaceholder: "Briefly describe your symptoms",
+      submit: "Confirm Booking"
+    },
+    mr: {
+      header: "तपासणी वेळ नोंदणी",
+      nameLabel: "पूर्ण नाव",
+      namePlaceholder: "रुग्णाचे नाव",
+      phoneLabel: "फोन नंबर",
+      phonePlaceholder: "मोबाईल",
+      deptLabel: "वैद्यकीय विभाग",
+      deptSelect: "विभाग निवडा",
+      depts: [
+        { value: "cardiology", label: "हृदयरोग विभाग" },
+        { value: "diabetes", label: "मधुमेह विभाग" },
+        { value: "critical", label: "क्रिटिकल केअर" },
+        { value: "others", label: "इतर उपचार" }
+      ],
+      docLabel: "डॉक्टर",
+      docSelect: "डॉक्टर निवडा",
+      docOption: "डॉ. एन. बी. घुगे (एम.डी. मेडिसिन)",
+      dateLabel: "तपासणी दिनांक",
+      timeLabel: "तпасणी वेळ",
+      symptomsLabel: "लक्षणे / भेटीचे कारण",
+      symptomsPlaceholder: "कृपया तुमच्या लक्षणांचे संक्षिप्त वर्णन करा",
+      submit: "वेळ आरक्षित करा"
+    }
+  }[lang];
+
   return (
     <div className="form-card glass-card animate-fade-in" style={{ height: '100%' }}>
       <div className="form-header">
         <Calendar size={32} className="text-primary" />
-        <h3 style={{ fontSize: '1.5rem', color: 'var(--color-primary-dark)' }}>Book Consultation</h3>
+        <h3 style={{ fontSize: '1.5rem', color: 'var(--color-primary-dark)' }}>{t.header}</h3>
       </div>
       
       <form onSubmit={(e) => e.preventDefault()} className="appt-form mt-4">
         <div className="grid grid-cols-2 gap-4">
           <div className="form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Patient's Name" required />
+            <label>{t.nameLabel}</label>
+            <input type="text" placeholder={t.namePlaceholder} required />
           </div>
           <div className="form-group">
-            <label>Phone Number</label>
-            <input type="tel" placeholder="Mobile" required />
+            <label>{t.phoneLabel}</label>
+            <input type="tel" placeholder={t.phonePlaceholder} required />
           </div>
           <div className="form-group">
-            <label>Department</label>
+            <label>{t.deptLabel}</label>
             <select required defaultValue="">
-              <option value="" disabled>Select Dept</option>
-              <option value="cardiology">Cardiology</option>
-              <option value="neurology">Neurology</option>
-              <option value="orthopedics">Orthopedics</option>
+              <option value="" disabled>{t.deptSelect}</option>
+              {t.depts.map((d, idx) => (
+                <option key={idx} value={d.value}>{d.label}</option>
+              ))}
             </select>
           </div>
           <div className="form-group">
-            <label>Doctor</label>
+            <label>{t.docLabel}</label>
             <select required defaultValue="">
-              <option value="" disabled>Select Doctor</option>
-              <option value="dr-rajesh">Dr. Rajesh Sharma</option>
-              <option value="dr-neha">Dr. Neha Patel</option>
-              <option value="dr-amit">Dr. Amit Verma</option>
+              <option value="" disabled>{t.docSelect}</option>
+              <option value="dr-ghuge">{t.docOption}</option>
             </select>
           </div>
           <div className="form-group">
-            <label>Preferred Date</label>
+            <label>{t.dateLabel}</label>
             <input type="date" required />
           </div>
           <div className="form-group">
-            <label>Preferred Time</label>
+            <label>{t.timeLabel}</label>
             <input type="time" required />
           </div>
         </div>
         <div className="form-group mt-4">
-          <label>Symptoms / Reason for visit</label>
-          <textarea rows="3" placeholder="Briefly describe your symptoms" required></textarea>
+          <label>{t.symptomsLabel}</label>
+          <textarea rows="3" placeholder={t.symptomsPlaceholder} required></textarea>
         </div>
         
-        <button type="submit" className="btn btn-primary btn-full mt-4">Confirm Booking</button>
+        <button type="submit" className="btn btn-primary btn-full mt-4">{t.submit}</button>
       </form>
     </div>
   );
