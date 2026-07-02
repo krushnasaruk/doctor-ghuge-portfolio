@@ -166,7 +166,6 @@ const Navbar = ({ lang, setLang }) => {
                 padding: '0.5rem 0.8rem', 
                 fontSize: '0.85rem', 
                 textTransform: 'none', 
-                display: 'flex', 
                 alignItems: 'center', 
                 gap: '0.4rem',
                 cursor: 'pointer'

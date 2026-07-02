@@ -249,6 +249,12 @@
   gap: 1rem;
 }
 
+.lang-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
 .nav-actions .btn-primary {
   padding: 0.6rem 1.25rem;
   font-size: 0.85rem;
@@ -287,8 +293,8 @@
     align-items: center;
     gap: 1rem;
   }
-  .nav-actions .btn-primary { display: none; }
-  .nav-actions .lang-toggle-btn { display: none; }
+  .nav-actions .btn-primary { display: none !important; }
+  .nav-actions .lang-toggle-btn { display: none !important; }
   .mobile-toggle { display: block; }
   
   .nav-links {
